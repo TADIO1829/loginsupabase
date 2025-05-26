@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, IonicModule],
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
-export class HomePage implements OnInit {
+export class HomeComponent implements OnInit {
   email = '';
 
   constructor(private router: Router) {}
@@ -29,4 +29,4 @@ export class HomePage implements OnInit {
     await supabase.auth.signOut();
     this.router.navigate(['/auth']);
   }
-} 
+}
