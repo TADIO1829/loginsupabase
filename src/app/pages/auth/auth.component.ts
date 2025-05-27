@@ -17,7 +17,17 @@ export class AuthPage {
   password = '';
   error = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    window.addEventListener('beforeunload', this.handleBeforeUnload);
+  }
+
+  ngOnDestroy() {
+    window.removeEventListener('beforeunload', this.handleBeforeUnload);
+  }
+
+  handleBeforeUnload = async (event: BeforeUnloadEvent) => {
+    await supabase.auth.signOut();
+  };
 
   async login() {
     const { error } = await supabase.auth.signInWithPassword({

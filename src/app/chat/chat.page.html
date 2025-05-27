@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/home']" fill="clear">
+        <ion-icon slot="icon-only" name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="message-container">
+    <div *ngFor="let message of messages"
+         [ngClass]="{
+           'sent-message': message.sender_email === senderEmail,
+           'received-message': message.sender_email !== senderEmail
+         }">
+      <strong>{{ message.sender_email }}</strong>
+      <p>{{ message.message }}</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-item lines="none">
+    <ion-input [(ngModel)]="newMessage" placeholder="Escribe un mensaje..."></ion-input>
+    <ion-button (click)="sendMessage()">Enviar</ion-button>
+  </ion-item>
+</ion-footer>

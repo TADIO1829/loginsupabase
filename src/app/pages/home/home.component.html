@@ -1,10 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inicio</ion-title>
+    <ion-title color="light">Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p>Bienvenido: {{ email }}</p>
-  <ion-button expand="full" color="danger" (click)="logout()">Cerrar sesión</ion-button>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-card-title>¡Bienvenido!</ion-card-title>
+      <ion-card-subtitle>{{ email }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Gracias por usar nuestra aplicación. Desde aquí puedes acceder al chat, ver tus mensajes y mucho más.</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-col size="12" size-md="6">
+        <ion-button expand="block" color="primary" [routerLink]="['/chat']">
+          <ion-icon slot="start" name="chatbubbles-outline"></ion-icon>
+          Ir al Chat
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6">
+        <ion-button expand="block" color="danger" (click)="logout()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Cerrar sesión
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

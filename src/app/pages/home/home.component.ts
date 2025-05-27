@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { supabase } from 'src/app/supabase.client';
 import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, IonicModule],
-  selector: 'app-home',
+  imports: [CommonModule, IonicModule, RouterModule],  
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
